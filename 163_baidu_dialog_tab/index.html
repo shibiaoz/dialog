@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jQuery特效,css群:122308198,网站重构设计,div+css网站建设</title>
+<liNK href="css/163css.css" type=text/css rel=stylesheet>
+<script>
+<!--
+/*第一种形式 第二种形式 更换显示样式*/
+function setTab(name,cursel,n){
+for(i=1;i<=n;i++){
+var menu=document.getElementById(name+i);
+var con=document.getElementById("con_"+name+"_"+i);
+menu.className=i==cursel?"hover":"";
+con.style.display=i==cursel?"block":"none";
+}
+}
+//-->
+</script>
+</head>
+<body>
+<div id="bg"></div>
+<div id="main">
+  <input name="button" type="button" class="bton pointer" value="登录百度" onclick="openBg(1);openSelect(1)"/>
+</div>
+<div id="selectItem" class="hidden">
+	<h2><span class="pointer right" onclick="openBg(0);openSelect(0);"><img src="images/img01.gif" /></span></h2>
+	<ul class="top01-pro">
+		<li id="one1" onclick="setTab('one',1,2)"  class="hover"><b>登录</b></li>
+		<li id="one2" onclick="setTab('one',2,2)" ><b>注册</b></li>
+	</ul>
+	<div class="box-163css">
+		<div id="con_one_1" class="hover">
+			<img src="images/img02.gif">		
+		</div>
+		<div id="con_one_2" style="display:none">
+			<img src="images/img03.gif" />
+		</div>
+	</div>	
+</div>
+ 
+<script type="text/javascript">
+function $(o){ //获取对象
+ if(typeof(o) == "string")
+ return document.getElementById(o);
+ return o;
+}
+function openBg(state){ //遮照打开关闭控制
+ if(state == 1)
+ {
+  $("bg").style.display = "block";
+  var h = document.body.offsetHeight > document.documentElement.offsetHeight ? document.body.offsetHeight : document.documentElement.offsetHeight;
+// alert(document.body.offsetHeight);
+ //alert(document.documentElement.offsetHeight);
+  $("bg").style.height = h + "px";
+ }
+ else
+ {
+  $("bg").style.display = "none";
+ } 
+}
+function openSelect(state){ //选择城市层关闭打开控制
+ if(state == 1) 
+ {
+  $("selectItem").style.display = "block";
+  $("selectItem").style.left = ($("bg").offsetWidth - $("selectItem").offsetWidth)/2 + "px";
+  $("selectItem").style.top = document.body.scrollTop + 100 + "px";  
+ }
+ else
+ {
+  $("selectItem").style.display = "none";
+ }
+}
+function showSelect(id){
+ for(var i = 0 ; i < grow ;i++)
+ {
+  $("c0" + i).style.display = "none";
+ }
+ $("c0" + id).style.display = "block";
+ showGrow = id;
+}
+</script>
+</body>
+</html>
